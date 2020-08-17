@@ -1,0 +1,154 @@
+Idea of function programming style
+Functional Programming is way of building softwares
+by composing pure functions, avoiding shared state, mutable data, and side-effects.
+
+Functional programming is a programming paradigm in which we try to bind everything in pure mathematical functions style.
+
+FP paradigm vs OOPS paradigm(Not discussed here. Go and search)
+
+Now, what are pure functions ?
+Pure functions is idea derived from mathematics in essence that given an same input it will generate same output. Essentially, input and output can be mapped together.
+It removes the 'but' from function that this function provides this output on sunday,monday and this output on some another day when it is not raining.
+
+# Code
+Impure function
+math.random()
+
+
+Pure function
+const add = (a,b) => a+b;
+Every time someone call add function with same value of a and b it will generate the same output.
+add(1,1) // 2
+Will always generate the same output on any day or whether it is rain or not.
+Unlike math.random() 
+
+Deeper dive to pure functions and What are problems that we are trying to solve from this concept of pure functions ?
+- Less Brain Power
+See in pure functions we are only concerned with inputs and not on outer scope and from where these inputs are defined or generated.
+
+# Code
+const sum = 0;
+Impure Function
+const add = (a) => sum + a;
+
+On some day, when sum = 0
+add(1); // 1
+On another day, when sum = 1
+add(1); // 2
+
+Problem with this here is same input we now get different output. And also it takes more brain work to manually keep track of all the outer scoped variables being used. We don't want that.
+
+Basic priciple to follow while making pure functions is that never use outer variables other than inputs.
+
+# Code
+let list = [1,2,3,4,5]
+// Add 1 to each element
+for(let i=0;i<list.length;i++){ // Iteration Code
+    list[i] = list[i] + 1; // Worker Code
+}
+console.log(list)
+Expected Output: 2,3,4,5,6
+Actual Output: 2,3,4,5,6
+
+Here again we have to focus on iteration code  ' for(let i=0;i<list.length;i++) '
+And in each iteration we have some worker code ' list[i] = list[i] + 1 '
+Its quite complicated to understand keeping  iteration code and worker code both in mind at same time.
+
+let list = [1,2,3,4,5]
+const addOne = (item) => item+1; // Worker Code
+list.map(addOne) // Iteration code
+// map iterate over list and call function on every iteration with the respective item
+// and from the return value of function it creates new array and then return newly created array
+
+Here we separated concerns of iteration code and worker code and really focus on one thing at time.
+Way to do that is to pass PURE function to do work
+
+console.log(list);
+Expected Output: 2,3,4,5,6
+Actual Output: 1,2,3,4,5
+
+See the difference. Now this brought us to another point immutablity which is biggest advantage to pure functions.
+
+- Immutablity
+It means that inputs passed to functions must not change.
+
+# Code
+const a = [1,2,3]
+// Impure Function
+const addElement(el) = () => {
+    a.push(el);
+}
+console.log(a);
+Output: [1,2,3,4]
+
+
+Since it uses another variables outer scoped to this function.
+
+addElement(4) // on some day when a = [1,2,3]
+[1,2,3,4]
+addElement(4) // on some day when a = [1,1,1]
+[1,1,1,4]
+
+Some might suggest we pass A as argument to function
+
+# Code
+const a = [1,2,3]
+// Impure Function
+addElement(a,el) => {
+    a.push(el)
+}
+console.log(a)
+Expected Output: [1,2,3]
+Actual Output: [1,2,3,4]
+
+Reason lies in pass by reference.
+Everything is object and it is passed as pointer to the memory location and not the actual value.
+
+Even though it uses only input and produces output it is not pure function. It causes side effects.
+And also mutates the original data.
+So to go around this we need create copy of the original data
+
+# Code
+const a = [1,2,3]
+// Pure Function
+addElement(a,el) => {
+    return [...a,el]
+}
+console.log(a)
+Expected Output: [1,2,3]
+Actual Output: [1,2,3]
+
+[...a,el] - It creates new array and spread values of A into it and add el at the last.
+ie it will create new copy of A and will not effect original array.
+
+By the means of Pure functions we can achieve immutable nature in code.
+
+- Currying
+Currying is way to create new functions using existing functions in elegent way.
+
+This is currying
+Before:
+add(1,1)
+Now:
+add(1)(1)
+
+Suppose add is function that takes two arguments, add them and return it.
+Now we want addTwo function which is trivial application of currying
+
+const addTwo = add(2);
+add(2) return function using existing add function with one arguments set to 2
+
+addTwo(2)
+Output: 4
+
+
+Getting equipped with all this knowledge -
+
+RAMDA
+The primary distinguishing features of Ramda are:
+
+Ramda emphasizes a purer functional style. Immutability and side-effect free functions are at the heart of its design philosophy. This can help you get the job done with simple, elegant code.
+
+Ramda functions are automatically curried. This allows you to easily build up new functions from old ones simply by not supplying the final parameters.
+
+The parameters to Ramda functions are arranged to make it convenient for currying. The data to be operated on is generally supplied last.

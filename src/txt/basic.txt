@@ -1,0 +1,8 @@
+// Practical Functional Library for JS developers
+// Functional Programming
+
+// Ramda, Lodash, Underscore
+
+// Ramda
+// Functional Pipelines
+// Never mutate user data
