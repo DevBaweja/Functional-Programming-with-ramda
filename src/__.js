@@ -17,22 +17,33 @@ g(_, 2)(_, 3)(1)
 const _ = R.__;
 const { add } = R;
 
-console.log(add());
-console.log(add(1));
-console.log(add(_, 1));
-console.log(add(_, 1)(1));
-console.log(add(1)(1));
-console.log(add()(1, 1));
+add();
+//=> f2
+add(1);
+//=> f1
+add(_, 1);
+//=> f1
+add(_, 1)(1);
+//=> 2
+add(1)(1);
+//=> 2
+add()(1, 1);
+//=> 2
+
 // f1 f2 f3 are simply # of argument to function
 // Currying is notation of turning fn that takes more than one argument into
 // series of fn that each takes some argument
 
 const f = (x, y, z) => x + y + z;
-console.log(f);
+f;
+//=> f
 
 const g = x => y => z => x + y + z;
-console.log(g);
+g;
+//=> g
 
 // g here is curried version of f
-console.log(f(1, 1, 1));
-console.log(g(1)(1)(1));
+f(1, 1, 1);
+//=> 3
+g(1)(1)(1);
+//=> 3

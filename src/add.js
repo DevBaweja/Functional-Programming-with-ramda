@@ -11,5 +11,5 @@ R.add(7)(10); //=> 17
 */
 const { add } = R;
 const inc = add(1);
-
-console.log(inc(inc(10)));
+inc(inc(10));
+//=> 12

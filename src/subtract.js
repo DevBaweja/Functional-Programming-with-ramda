@@ -19,3 +19,4 @@ const _ = R.__;
 
 const dec = subtract(_, 1);
 console.log(dec(dec(10)));
+//=> 8

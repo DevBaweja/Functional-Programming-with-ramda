@@ -12,16 +12,24 @@ const { curry } = R;
 const _ = R.__;
 
 const f = (x, y, z) => x + y + z;
-console.log(f);
+f;
+//=> f
 const g = curry(f);
-console.log(g);
+g;
+//=> f3
 
-console.log(f(1, 1, 1));
-console.log(g(1)(1)(1));
-console.log(g(1, 1)(1));
-console.log(g(1)(1, 1));
+f(1, 1, 1);
+//=> 2
+g(1)(1)(1);
+//=> 2
+g(1, 1)(1);
+//=> 2
+g(1)(1, 1);
+//=> 2
 
 const a = (x, y, z) => 2 * x;
 const b = curry(a);
-console.log(b(1, 0, 0));
-console.log(b(_, 0, 0)(1));
+b(1, 0, 0);
+//=> 2
+b(_, 0, 0)(1);
+//=> 2
