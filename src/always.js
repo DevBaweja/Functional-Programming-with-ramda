@@ -13,6 +13,8 @@ This function is known as const, constant, or K (for K combinator) in other lang
 const t = R.always('Tee');
 t(); //=> 'Tee'
 */
+const k = x => () => x;
+// Implementation of always
 const R = require('ramda');
 const { always } = R;
 
