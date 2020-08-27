@@ -13,11 +13,11 @@ Also treats functions as functors and will compose them together.
 */
 const R = require('ramda');
 
-const { multiply } = R;
+const { multiply, map } = R;
 const double = multiply(2);
 
-R.map(double, [1, 2, 3]);
+map(double, [1, 2, 3]);
 //=> [2, 4, 6]
 
-R.map(double, { x: 1, y: 2, z: 3 });
+map(double, { x: 1, y: 2, z: 3 });
 //=> {x: 2, y: 4, z: 6}
