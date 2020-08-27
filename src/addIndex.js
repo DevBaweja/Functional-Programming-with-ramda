@@ -17,3 +17,13 @@ const R = require('ramda');
 
 const { addIndex, map, add } = R;
 console.log(addIndex(map)(add, [0, 0, 0, 0, 0]));
+peron = {
+    name: 'dev',
+    hobbies: [],
+};
+[
+    {
+        name: 'dev',
+        hobbies: 'nika',
+    },
+];
