@@ -1,5 +1,10 @@
 // Math
 // Number → Number → Number
+// a
+// The first value.
+// b
+// The second value.
+// Returns Number The result of `a - b`.
 
 const R = require('ramda');
 /*

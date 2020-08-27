@@ -1,5 +1,10 @@
 // Math
 // Number -> Number -> Number
+// a
+// The first value
+// b
+// The second value
+// Returns Number
 // This means it takes Number then return fn that takes Number and then return Number
 
 const R = require('ramda');

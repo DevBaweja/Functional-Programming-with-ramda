@@ -1,5 +1,8 @@
 // Function
-const R = require('ramda');
+// (* → a) → (* → a)
+// fn
+// The function to curry.
+// Returns function A new, curried function.
 /*
 Returns a curried equivalent of the provided function. The curried function has two unusual capabilities. First, its arguments needn't be provided one at a time. If f is a ternary function and g is R.curry(f), the following are equivalent:
 
@@ -8,6 +11,7 @@ g(1)(2, 3)
 g(1, 2)(3)
 g(1, 2, 3)
 */
+const R = require('ramda');
 const { curry } = R;
 const _ = R.__;
 

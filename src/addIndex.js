@@ -1,5 +1,9 @@
 // Function
 // ((a … → b) … → [a] → *) → ((a …, Int, [a] → b) … → [a] → *)
+// fn
+// A list iteration function that does not pass index or list to its callback
+
+// Returns function An altered list iteration function that passes (item, index, list) to its callback
 /*
 Creates a new list iteration function from an existing one by adding two new parameters to its callback function: the current index, and the entire list.
 

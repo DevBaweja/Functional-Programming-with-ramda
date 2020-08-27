@@ -1,5 +1,12 @@
 // List
 // Functor f => (a → b) → f a → f b
+// fn
+// The function to be called on every element of the input list.
+
+// list
+// The list to be iterated over.
+
+// Returns Array The new list.
 /*
 Takes a function and a functor, applies the function to each of the functor's values, and returns a functor of the same shape.
 
