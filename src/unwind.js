@@ -94,3 +94,19 @@ map(fn, a);
 reduce(fn, a)[(1, 2, 3)];
 // return acc;
 a.reduce((acc, item) => acc + item, {});
+
+
+// CODE
+const key = 'hobbies';
+const object = {
+    name: 'foo',
+    hobbies: ['Golf', 'Hockey'],
+};
+const unwind = (key, object) => {
+    return object[key].reduce((acc, item) => {
+        acc.push({ ...object, [key]: item });
+        return acc;
+    }, []);
+};
+
+console.log(unwind(key, object));
