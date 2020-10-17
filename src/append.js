@@ -3,7 +3,7 @@
 // el
 // The element to add to the end of the new list.
 // list
-// The list of elements to add a new item to. list.
+// The list of elements to add a new item to list.
 
 /*
 Returns Array A new list containing the elements of the old list followed by `el`.
@@ -19,3 +19,9 @@ R.append(['tests'], ['write', 'more']); //=> ['write', 'more', ['tests']]
 const R = require('ramda');
 
 const { append } = R;
+
+append('el', ['list']);
+//=> [ 'list', 'el' ]
+
+append('el', 'list');
+//=>  ['l', 'i', 's', 't', 'el'];
