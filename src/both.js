@@ -21,3 +21,19 @@ f(30); //=> false
 R.both(Maybe.Just(false), Maybe.Just(55)); // => Maybe.Just(false)
 R.both([false, false, 'a'], [11]); //=> [false, false, 11]
 */
+const R = require('ramda');
+
+const { both, gt, lt, gte, lte } = R;
+
+const gt10 = gt(R.__, 10);
+const lt20 = lt(R.__, 20);
+
+const inBetween10And20 = both(gt10, lt20);
+inBetween10And20(5);
+// => false
+inBetween10And20(15);
+// => true
+
+const isInRange = both(gte, lte);
+isInRange(10, 10);
+// => true
